@@ -1,0 +1,28 @@
+create table stocks
+    (
+    name varchar(50),
+    id int,
+    batchno int,
+    place varchar(45)
+   );
+
+
+create table sales
+   (
+    name varchar(50),
+    id int,
+    batchno int,
+    place varchar(45)
+    );
+
+
+select sysdate from dual;
+
+select to_char(sysdate,'mm-dd-yyyy hh24:mi:ss') as "Date and time" from dual;
+
+select to_char(sysdate,'mm/dd/yyyy') as "Date and time" from dual;
+
+select to_char(sysdate,'day') as "day" from dual;
+
+
+select to_char(sysdate+10) as from dual;
