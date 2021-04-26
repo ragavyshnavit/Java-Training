@@ -1,0 +1,57 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Mon Apr 26 16:50:02 2021
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+SQL> conn /as sysdba
+Connected.
+SQL> create table stocks
+  2      (
+  3      name varchar(50),
+  4      id int,
+  5      batchno int,
+  6      place varchar(45)
+  7     );
+
+Table created.
+
+SQL> create table sales
+  2     (
+  3      name varchar(50),
+  4      id int,
+  5      batchno int,
+  6      place varchar(45)
+  7      );
+
+Table created.
+
+SQL> select sysdate from dual;
+
+SYSDATE
+---------
+26-APR-21
+
+SQL> select to_char(sysdate,'mm-dd-yyyy hh24:mi:ss') as "Date and time" from dual;
+
+Date and time
+-------------------
+04-26-2021 16:51:23
+
+SQL> select to_char(sysdate,'mm/dd/yyyy') as "Date and time" from dual;
+
+Date and t
+----------
+04/26/2021
+
+SQL> select to_char(sysdate,'day') as "day" from dual;
+
+day
+------------------------------------
+monday
+
+SQL> select to_char(sysdate+10) as from dual;
+
+TO_CHAR(SYSDATE+10
+------------------
+06-MAY-21
+
