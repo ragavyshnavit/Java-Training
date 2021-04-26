@@ -7,21 +7,23 @@ SQL> conn /as sysdba
 Connected.
 SQL> create table stocks
   2      (
-  3      name varchar(50),
-  4      id int,
-  5      batchno int,
-  6      place varchar(45)
-  7     );
+  3      sno int,
+  4      name varchar(50),
+  5      id int,
+  6      batchno int,
+  7      place varchar(45)
+  8     );
 
 Table created.
 
 SQL> create table sales
   2     (
-  3      name varchar(50),
-  4      id int,
-  5      batchno int,
-  6      place varchar(45)
-  7      );
+  3      sno int,
+  4      name varchar(50),
+  5      id int,
+  6      batchno int,
+  7      place varchar(45)
+  8      );
 
 Table created.
 
