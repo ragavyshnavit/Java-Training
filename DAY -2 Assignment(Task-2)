@@ -1,0 +1,29 @@
+create table schedule
+       (
+        day varchar(5),
+        sess int,
+        faculty varchar(10),
+        sem varchar(5),
+        room varchar(5),
+        subject varchar(10),
+        constraints  mycomp1 unique(day,sess,faculty,sem,room),
+       constraints  mycomp2 unique(day,sess,faculty),
+       constraints  mycomp3 unique(day,sess,sem),
+       constraints mycomp4 unique(day,sess,room)
+       );
+
+insert into schedule values('mon',1,'john','7th','r1','java');
+
+insert into schedule values('mon',1,'john','5th','r2','dbms');
+
+insert into schedule values('mon',1,'cena','7th','r3','dbms');
+
+insert into schedule values('mon',1,'rock','4th','r1','ds');
+
+insert into schedule values('mon',1,'john','7th','r1','java');
+
+insert into schedule values('tue',1,'john','7th','r1','java');
+
+insert into schedule values('mon',2,'john','7th','r1','java');
+
+select * from schedule;
