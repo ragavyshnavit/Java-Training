@@ -1,0 +1,36 @@
+create table employe
+    (
+    empfname varchar(20),
+    empmname varchar(20),
+    emplastname varchar(20),
+    empage int check(empage>0 and empage<50),
+    empcity varchar(20) check(upper(empcity) like 'B%'),
+    empdesignation varchar(20),
+    empid  varchar(5),
+   empDOB date,
+   constraints my_pk primary key(empid)
+   );
+
+SQL> insert into employe values('Tavva','Raga','vyshnavi',22,'Bhopal','Manager','emp01',to_date('24/04/1998','dd/mm/yyyy'));
+
+SQL> insert into employe values('joopa','rani','sharma',36,'Bangalore','Sales Manager','emp02',to_date('21/08/1984','dd/mm/yyyy'));
+
+SQL> insert into employe values('rup','navi','Shetty',29,'Bijapur','Product Manager','emp03',to_date('02/07/1991','dd/mm/yyyy'));
+
+SQL> insert into employe values('Rupa','manogna','reddy',24,'Bhuvaneswar','Assistant Manager','emp04',to_date('11/11/1996','dd/mm/yyyy'));
+
+SQL> insert into employe values('Vamsi','ram','raju',22,'Bangalore','Account Manager','emp05',to_date('23/12/1998','dd/mm/yyyy'));
+
+ update employe set empcity='Bijapur' where empid='emp05';
+ 
+delete from employe where empid='emp04';
+
+commit;
+
+delete from employee;
+
+rollback;
+
+select * from employee;
+
+select substr(empfname,1,1)||'.'||substr(empmname,1,1)||'.'||emplastname as "Employe name",to_char(empDOB,'dd-mm-yyyy') from employe;
