@@ -13,9 +13,9 @@ create table employe
 
 SQL> insert into employe values('Tavva','Raga','vyshnavi',22,'Bhopal','Manager','emp01',to_date('24/04/1998','dd/mm/yyyy'));
 
-SQL> insert into employe values('joopa','rani','sharma',36,'Bangalore','Sales Manager','emp02',to_date('21/08/1984','dd/mm/yyyy'));
+SQL> insert into employe values('Rani','Ram','sharma',36,'Bangalore','Sales Manager','emp02',to_date('21/08/1984','dd/mm/yyyy'));
 
-SQL> insert into employe values('rup','navi','Shetty',29,'Bijapur','Product Manager','emp03',to_date('02/07/1991','dd/mm/yyyy'));
+SQL> insert into employe values('Rup','Navi','Shetty',29,'Bijapur','Product Manager','emp03',to_date('02/07/1991','dd/mm/yyyy'));
 
 SQL> insert into employe values('Rupa','manogna','reddy',24,'Bhuvaneswar','Assistant Manager','emp04',to_date('11/11/1996','dd/mm/yyyy'));
 
