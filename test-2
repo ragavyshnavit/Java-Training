@@ -30,7 +30,7 @@ SQL> insert into employe values('Tavva','Raga','vyshnavi',22,'Bhopal','Manager',
 
 1 row created.
 
-SQL> insert into employe values('rup','navi','Shetty',29,'Bijapur','Product Manager','emp03',to_date('02/07/1991','dd/mm/yyyy'));
+SQL> insert into employe values('Rup','Navi','Shetty',29,'Bijapur','Product Manager','emp03',to_date('02/07/1991','dd/mm/yyyy'));
 
 1 row created.
 
@@ -54,7 +54,7 @@ Bangalore            Sales Manager        emp02 21-AUG-84
 Tavva                Raga                 vyshnavi                     22
 Bhopal               Manager              emp01 24-APR-98
 
-rup                  navi                 Shetty                       29
+Rup                  Navi                 Shetty                       29
 Bijapur              Product Manager      emp03 02-JUL-91
 
 
@@ -101,7 +101,7 @@ Bangalore            Sales Manager        emp02 21-AUG-84
 Tavva                Raga                 vyshnavi                     22
 Bhopal               Manager              emp01 24-APR-98
 
-rup                  navi                 Shetty                       29
+Rup                  Navi                 Shetty                       29
 Bijapur              Product Manager      emp03 02-JUL-91
 
 
@@ -119,7 +119,7 @@ Employe name                   TO_CHAR(EM
 ------------------------------ ----------
 R.R.sharma                     21-08-1984
 T.R.vyshnavi                   24-04-1998
-r.n.Shetty                     02-07-1991
+R.N.Shetty                     02-07-1991
 V.r.raju                       23-12-1998
 
 SQL>
