@@ -1,0 +1,125 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Tue Apr 27 15:36:39 2021
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+SQL> conn /as sysdba
+Connected.
+
+
+SQL> create table employe
+  2      (
+  3      empfname varchar(20),
+  4      empmname varchar(20),
+  5      emplastname varchar(20),
+  6      empage int check(empage>0 and empage<50),
+  7      empcity varchar(20) check(upper(empcity) like 'B%'),
+  8      empdesignation varchar(20),
+  9      empid  varchar(5),
+ 10     empDOB date,
+ 11     constraints my_pk primary key(empid)
+ 12     );
+
+Table created.
+
+SQL> insert into employe values('Rani','Ram','sharma',36,'Bangalore','Sales Manager','emp02',to_date('21/08/1984','dd/mm/yyyy'));
+
+1 row created.
+
+SQL> insert into employe values('Tavva','Raga','vyshnavi',22,'Bhopal','Manager','emp01',to_date('24/04/1998','dd/mm/yyyy'));
+
+1 row created.
+
+SQL> insert into employe values('rup','navi','Shetty',29,'Bijapur','Product Manager','emp03',to_date('02/07/1991','dd/mm/yyyy'));
+
+1 row created.
+
+SQL> insert into employe values('Rupa','manogna','reddy',24,'Bhuvaneswar','Assistant Manager','emp04',to_date('11/11/1996','dd/mm/yyyy'));
+
+1 row created.
+
+SQL> insert into employe values('Vamsi','ram','raju',22,'Bangalore','Account Manager','emp05',to_date('23/12/1998','dd/mm/yyyy'));
+
+1 row created.
+
+SQL> select * from employe;
+
+EMPFNAME             EMPMNAME             EMPLASTNAME              EMPAGE
+-------------------- -------------------- -------------------- ----------
+EMPCITY              EMPDESIGNATION       EMPID EMPDOB
+-------------------- -------------------- ----- ---------
+Rani                 Ram                  sharma                       36
+Bangalore            Sales Manager        emp02 21-AUG-84
+
+Tavva                Raga                 vyshnavi                     22
+Bhopal               Manager              emp01 24-APR-98
+
+rup                  navi                 Shetty                       29
+Bijapur              Product Manager      emp03 02-JUL-91
+
+
+EMPFNAME             EMPMNAME             EMPLASTNAME              EMPAGE
+-------------------- -------------------- -------------------- ----------
+EMPCITY              EMPDESIGNATION       EMPID EMPDOB
+-------------------- -------------------- ----- ---------
+Rupa                 manogna              reddy                        24
+Bhuvaneswar          Assistant Manager    emp04 11-NOV-96
+
+Vamsi                ram                  raju                         22
+Bangalore            Account Manager      emp05 23-DEC-98
+
+
+SQL> update employe set empcity='Bijapur' where empid='emp05';
+
+1 row updated.
+
+SQL> delete from employe where empid='emp04';
+
+1 row deleted.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> delete from employe;
+
+4 rows deleted.
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> select * from employe;
+
+EMPFNAME             EMPMNAME             EMPLASTNAME              EMPAGE
+-------------------- -------------------- -------------------- ----------
+EMPCITY              EMPDESIGNATION       EMPID EMPDOB
+-------------------- -------------------- ----- ---------
+Rani                 Ram                  sharma                       36
+Bangalore            Sales Manager        emp02 21-AUG-84
+
+Tavva                Raga                 vyshnavi                     22
+Bhopal               Manager              emp01 24-APR-98
+
+rup                  navi                 Shetty                       29
+Bijapur              Product Manager      emp03 02-JUL-91
+
+
+EMPFNAME             EMPMNAME             EMPLASTNAME              EMPAGE
+-------------------- -------------------- -------------------- ----------
+EMPCITY              EMPDESIGNATION       EMPID EMPDOB
+-------------------- -------------------- ----- ---------
+Vamsi                ram                  raju                         22
+Bijapur              Account Manager      emp05 23-DEC-98
+
+
+SQL> select substr(empfname,1,1)||'.'||substr(empmname,1,1)||'.'||emplastname as "Employe name",to_char(empDOB,'dd-mm-yyyy') from employe;
+
+Employe name                   TO_CHAR(EM
+------------------------------ ----------
+R.R.sharma                     21-08-1984
+T.R.vyshnavi                   24-04-1998
+r.n.Shetty                     02-07-1991
+V.r.raju                       23-12-1998
+
+SQL>
