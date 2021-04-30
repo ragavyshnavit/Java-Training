@@ -1,0 +1,148 @@
+1-> create a function to check the given string contains UPPER case char or not
+Signature of function is as follows:
+String hasUpper(String data)
+{
+}
+return yes if it contans upper case char else return no
+
+
+public class UpperCase {
+
+	String hasUpper(String data){
+		char[] ar= data.toCharArray();
+		int f=0;
+		for(int i=0;i<ar.length;i++)
+		{
+			if(ar[i]>='A'&&ar[i]<='Z')
+			{
+				f=1;
+				break;
+			}
+		}
+		if(f==1)
+			return "Yes";
+		else
+			return "No";
+	}
+public static void main(String[] args) {
+	String res="Teja";
+	String res1="vyshu";
+	UpperCase upperCase=new UpperCase();
+	System.out.println(upperCase.hasUpper(res));
+	System.out.println(upperCase.hasUpper(res1));
+}
+}
+
+
+//output
+ yes
+ no
+ 
+ ----------------------------------------------------------------------------
+ 2-> create a function to check the given string contains number   or not
+siganture same as the abouve function
+
+
+public class Number {
+		String hasNumber(String data){
+			char[] ar= data.toCharArray();
+			int f=0;
+			for(int i=0;i<ar.length;i++)
+			{
+				if(ar[i]>='0'&&ar[i]<='9')
+				{
+					f=1;
+					break;
+				}
+			}
+			if(f==1)
+				return "Yes";
+			else
+				return "No";
+		}
+	public static void main(String[] args) {
+		String res="Vyshnavi123";
+		String res1="teja";
+		Number number=new Number();
+		System.out.println(number.hasNumber(res));
+		System.out.println(number.hasNumber(res1));
+	}
+}
+
+//OUTPUT
+Yes
+No
+
+
+--------------------------------------------------------------------------------------
+3->  create a function to check all chars in the given string are in  UPPER case or not
+Signature of function is as follows:
+boolean isCapsOnly(String data)
+return true if all chars in arg data is in upper case
+ 
+ 
+ public class Caps
+ {
+		boolean isCapsOnly(String data)
+    {
+			char[] ar= data.toCharArray();
+			int f=0;
+			for(int i=0;i<ar.length;i++)
+			{	
+				if(ar[i]<'A'||ar[i]>'Z')
+				{
+					f=1;
+					break;
+				}
+			}
+			if(f==1)
+				return false;
+			else
+				return true;
+			}
+		public static void main(String[] args) {
+			String res="teJa";
+			String res1="VYSHU";
+			Caps caps=new Caps();
+			System.out.println(caps.isCapsOnly(res));
+			System.out.println(caps.isCapsOnly(res1));
+		}
+	}
+
+ //OUTPUT
+ 
+ false
+ true
+
+---------------------------------------------------------------------
+4-> create a function to count no of caps  chars in the given string
+Signature of function is as follows:
+int countCaps(String data)
+return no of caps chars
+
+
+public class NumbCaps {
+		int countCaps(String data){
+			char[] ar= data.toCharArray();
+			int count=0;
+			for(int i=0;i<ar.length;i++)		
+			{	
+				if(ar[i]>='A'&&ar[i]<='Z')
+				{
+					count++;
+				}
+			}
+			return count;
+			}
+			public static void main(String[] args) {
+				String res="VysHnaVI";
+				String res1="TeJa";
+				NumbCaps numbCaps=new NumbCaps();
+				System.out.println(numbCaps.countCaps(res));
+				System.out.println(numbCaps.countCaps(res1));
+			}
+		}
+    
+    //OUTPUT
+    4
+    2
