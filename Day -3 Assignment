@@ -1,0 +1,58 @@
+public class Hello_Replace
+{
+		String myReplaceFirst(String data,char find,char replace)
+	{
+		char[] ar= data.toCharArray();
+
+		for(int i=0;i<ar.length;i++)
+		{
+
+		if(ar[i]==find)
+		{
+		ar[i]=replace;
+		break;
+		}
+		}
+
+		String val=new String(ar);
+		return  val;
+		}
+
+      String myReplaceLast(String data,char find,char replace) 
+{
+	char[] ar= data.toCharArray();
+	for(int i=ar.length-1;i>=0;i--)
+	{
+	
+     if(ar[i]==find)
+     {
+    	 ar[i]=replace;
+    	 break;
+     }
+	}
+	String val=new String(ar);
+	return  val;
+	}
+		public static void main(String[] args) 
+		{
+
+		String test="Hello";
+
+		
+		
+		Hello_Replace m=new  Hello_Replace();
+		String res= m.myReplaceFirst(test, 'l', 'Y');
+		String res1= m.myReplaceLast(test, 'l', 'Y');
+		
+		System.out.println(res);
+		System.out.println(res1);
+		}	
+		}
+		
+    
+    
+    
+    //output
+    
+    HeYlo
+    HelYo
