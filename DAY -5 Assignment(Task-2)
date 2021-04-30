@@ -1,0 +1,85 @@
+create a function to   check 2 given chars
+are equal or not irrespective of the case
+
+Signature of function is as follows:
+boolean isEqual(char c1 , char c2)
+
+Example ->  A , a or a, A or A, A or a , a should return ture else return false
+
+
+public class Char {
+		boolean isEqual(char c1 , char c2){
+			if(c1>='A'&&c1<='Z')
+				c1=(char)(c1+32);
+			if(c2>='A'&&c2<='Z')
+				c2=(char)(c2+32);
+			if(c1==c2)
+				return true;
+			else
+				return false;
+		}
+		public static void main(String[] args) {
+			Char m=new Char();
+			char c1='a',c2='a',c3='A';
+			System.out.println(m.isEqual(c1, c2));
+			System.out.println(m.isEqual(c1, c3));
+		}
+
+	}
+  
+  //OUTPUT
+  true
+  true
+  
+  -------------------------------------------------------
+  
+ -> create a function to   check 2 given Strings
+are equal or not irrespective of the case
+
+Signature of function is as follows:
+boolean isEqual(String str1 , String str2)
+
+Example -> Hello , HELLO is any case should return ture else return false  
+
+ 
+  public class StrEqual {
+		boolean isEqual(String str1 , String str2)
+		{
+			int f=0;
+			char[] ar1= str1.toCharArray();
+			char[] ar2=str2.toCharArray();
+			if(str1.length()==str2.length())
+			{
+				for(int i=0;i<ar1.length;i++)
+				{
+					if(ar1[i]>='A'&&ar1[i]<='Z')
+						ar1[i]=(char)(ar1[i]+32);
+					if(ar2[i]>='A'&&ar2[i]<='Z')
+						ar2[i]=(char)(ar2[i]+32);
+				}
+				for(int i=0;i<ar1.length;i++)
+				{	
+					if(ar1[i]!=ar2[i])
+					{
+						f=0;
+						break;
+					}
+					else
+						f=1;
+				}
+			}
+			if(f==1)
+				return true;
+			else
+				return false;	
+		}
+		public static void main(String[] args) {
+			StrEqual strEqual=new StrEqual();
+			String s1="Vyshu",s2="VYShU";
+			System.out.println(strEqual.isEqual(s1,s2));
+		}
+
+		}
+	
+//Output
+true
