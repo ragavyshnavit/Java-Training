@@ -1,0 +1,152 @@
+Q1)   int sum(int... x){
+System.out.println("sum meth "+x[6]);
+return 10;
+}
+
+ // return the total sum of the args
+// print the max value
+// print the min
+// print no of ODD and even digits
+//print count numbers div by 3
+
+
+package Test;
+public class TestArray {  
+    public static void main(String[] args) {    
+        int [] arr = new int [] {1, 2, 3, 4, 5,6};  
+        int sum = 0;
+        int oddcount=0,evencount=0,div=0;
+        int max=0 ,min=arr[0];
+        for (int i = 0; i < arr.length; i++) {  
+           sum = sum + arr[i];  
+        }  
+        System.out.println("Sum of array: " + sum); 
+        
+        
+        for (int i = 0; i < arr.length; i++) {   
+           if(arr[i] > max)  
+               max = arr[i];  
+        }  
+        System.out.println("max of array: " +max);
+        
+        
+        for (int i = 0; i < arr.length; i++) {  
+            
+           if(arr[i] <min)  
+               min = arr[i];  
+        }  
+        System.out.println("min of array: " + min); 
+        
+        
+        for(int i=0;i<arr.length;i++){  
+          if(arr[i]%2!=0)  
+            oddcount ++;  
+            
+          } 
+      System.out.println("sum of odd : " +oddcount);
+      
+      
+      for(int i=0;i<arr.length;i++){  
+          if(arr[i]%2==0)  
+            evencount ++;  
+            
+          } 
+      System.out.println("sum of even : " +evencount);
+      
+      for(int i=0;i<arr.length;i++){  
+          if(arr[i]%3==0)  
+            div ++;  
+            
+          } 
+      System.out.println("count of num div by 3 : " +div);
+        
+        
+        
+    }  
+}
+
+
+//output
+Sum of array: 21
+max of array: 6
+min of array: 1
+sum of odd : 3
+sum of even : 3
+count of num div by 3 : 2
+
+
+----------------------------------------------------------------------------------------------------------
+Q2) reverse a given string 
+
+Example :  Hello
+
+output: olleH
+
+
+
+
+package Test;
+public class Stringreverse {
+public static String hello = "Hello";
+public static void main(String[] args)
+{
+System.out.println(reverseString(hello));
+}
+public static String reverseString(String s) {
+char c[] = s.toCharArray();
+int i = 0, j = c.length - 1;
+while (i < j) {
+char tmp = c[i];
+c[i] = c[j];
+c[j] = tmp;
+i++;
+j--;
+}
+return new String(c);
+}
+}
+
+
+/output
+olleH
+
+--------------------------------------------------------------------------------------------------------------
+Q3) reverse a given string and maintain its caps position
+
+EX:  
+input ->  HeLloWorld
+output-DlRowOlleh
+
+input ->  MyJavaWorld
+output-DlRoWaVajym
+
+
+package Test;
+
+public class Stringrevupposition {
+		public static void main(String[] args) {
+			String hello="HeLloWorld";
+			
+			char[] ar= hello.toCharArray();
+			int index=0;
+			for(int i=ar.length-1;i>=0;i--)	
+			{
+				if(ar[index]>96&&ar[index]<123)
+				{
+					if(ar[i]>64&&ar[i]<91)
+						System.out.print((char)(ar[i]+32));
+					else
+						System.out.print(ar[i]);
+				}
+				else if(ar[index]>64&&ar[index]<91)
+				{
+					if(ar[i]>96&&ar[i]<123)
+						System.out.print((char)(ar[i]-32));
+					else
+						System.out.print(ar[i]);
+				}		
+				index++;
+		}
+		}
+		}
+
