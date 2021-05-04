@@ -1,0 +1,215 @@
+India, brazil , norway ,qatar , turkey
+numberformat for countries
+
+india - (example: +91-9999999999)
+// +91-9988776655 ->valid
+//+91-99A998877-> Invalid
+//+91-999988 -> invalid
+
+brazil - (example: +55 15 99999-9999)
+// +55 15 78945-5645
+
+norway-(example +47-49-99-99-99)
+qatar -(example +974 3399-9999)
+turkey -(example+90 509-999999 or 0509-999-999)    
+
+
+CODE:
+
+package com.mytask;
+
+interface Number
+{
+boolean phoneNumberFormat(String Number);
+}
+abstract class country implements Number{}
+class India extends country{
+	public boolean PhoneNumberFormat(String Number)
+	{
+		char ar[]=Number.toCharArray();
+		int r=0;
+		if(ar[0]=='+'&&ar[1]=='9'&&ar[2]=='1'&&ar[3]=='-')
+			for(int i=4;i<ar.length;i++)
+			{
+				if(ar[i]>='0'&&ar[i]<='9')
+					r++;
+				else
+					return false;
+			}
+		if(r==10)
+			return true;
+		else 
+			return false;
+}
+	public boolean phoneNumberFormat(String Number) {
+		
+		return false;
+	}
+}
+
+class Brazil  extends country
+{
+		public boolean PhoneNumberFormat(String Number)
+		{
+			char ar[]=Number.toCharArray();
+			int r=0;
+			if(ar[0]=='+'&&ar[1]=='5'&&ar[2]=='5'&&ar[3]==' '&&ar[4]=='1'&&ar[5]=='5'&&ar[6]==' ')
+				for(int i=7;i<ar.length;i++)
+				{
+					if(i!=12)
+						if(ar[i]>='0'&&ar[i]<='9')
+							r++;
+						else
+							return false;
+					else
+						if(ar[i]=='-')
+						r++;
+				}
+			if(r==10)
+				return true;
+			else 
+				return false;
+		}
+	public boolean phoneNumberFormat(String Number) {
+		
+		return false;
+	}}
+
+class Norway extends country
+{	
+	public boolean PhoneNumberFormat(String Number)
+		{
+			char ar[]=Number.toCharArray();
+			int r=0;
+			if(ar[0]=='+'&&ar[1]=='4'&&ar[2]=='7'&&ar[3]=='-'&&ar[4]=='4')
+				for(int i=5;i<ar.length;i++)
+				{
+					if(i!=6&&i!=9&&i!=12)
+						if(ar[i]>='0'&&ar[i]<='9')
+							r++;
+						else
+							return false;
+					else 
+						if(ar[i]=='-')
+							r++;
+				}
+			if(r==10)
+				return true;
+			else 
+				return false;
+		}
+	public boolean phoneNumberFormat(String Number) {
+		return false;
+	}}
+
+class Qatar extends country
+{
+		public boolean PhoneNumberFormat(String Number)
+		{
+			char ar[]=Number.toCharArray();
+			int f=0;
+			if(ar[0]=='+'&&ar[1]=='9'&&ar[2]=='7'&&ar[3]=='4'&&ar[4]==' '&&ar[5]=='3'&&ar[6]=='3')
+				for(int i=7;i<ar.length;i++)
+				{
+					if(i!=9)
+						if(ar[i]>='0'&&ar[i]<='9')
+								f++;
+						else
+							return false;
+					else
+						if(ar[i]=='-')
+							f++;
+				}
+			if(f==7)
+				return true;
+			else 
+				return false;
+		}	
+	
+	public boolean phoneNumberFormat(String Number) {
+		
+		return false;
+	}}
+
+class Turkey extends country
+{
+		public boolean PhoneNumberFormat(String Number)
+		{
+			char ar[]=Number.toCharArray();
+			int f=0;
+			if(ar[0]=='+'&&ar[1]=='9'&&ar[2]=='0'&&ar[3]==' '&&ar[4]=='5'&&ar[5]=='0'&&ar[6]=='9'&&ar[7]=='-')
+			{
+				for(int i=8;i<ar.length;i++)
+				{
+					if(ar[i]>='0'&&ar[i]<='9')
+						f++;
+					else
+						return false;
+				}
+				if(f==6)
+					return true;
+				else 
+					return false;
+			}
+			else if(ar[0]=='0'&&ar[1]=='5'&&ar[2]=='0'&&ar[3]=='9'&&ar[4]=='-')
+			{
+				for(int i=5;i<ar.length;i++)
+				{
+					if(i!=8)
+						if(ar[i]>='0'&&ar[i]<='9')
+							f++;
+						else
+							return false;
+					else
+						if(ar[i]=='-')
+							f++;
+				}
+			if(f==7)
+				return true;
+			else 
+				return false;
+			}
+			return false;
+			}
+
+		public boolean phoneNumberFormat(String Number) {
+			
+			return false;
+		}}
+public  class PhnoTest {
+	
+	public static void main(String[] args) {
+		
+		String IndNumber="+91-9988776655";
+		India india=new India();
+		System.out.println("India:"+india.PhoneNumberFormat(IndNumber));
+		
+		String BrNumber="+55 15 78945-5645";
+		Brazil brazil=new Brazil();
+		System.out.println("Brazil:"+brazil.PhoneNumberFormat(BrNumber));
+		
+		
+		String nNumber="+47-49-99-99-99";
+		Norway norway=new Norway();
+		System.out.println("Norway:"+norway.PhoneNumberFormat(nNumber));
+		
+		String QNumber="+974 3399-9999";
+		Qatar qatar=new Qatar();
+		System.out.println("Qatar:"+qatar.PhoneNumberFormat(QNumber));
+		
+		
+		String TNumber="+90 509-999999";
+		String T1Number="0509-999-999";
+		Turkey turkey=new Turkey();
+		System.out.println("Turkey:"+turkey.PhoneNumberFormat(TNumber));
+		System.out.println("Turkey1:"+turkey.PhoneNumberFormat(T1Number));
+	}}
+
+
+//OUTPUT
+India:true
+Brazil:true
+Norway:true
+Qatar:true
+Turkey:true
+Turkey1:true
