@@ -1,0 +1,135 @@
+Note: create with all getter setter cont and to string
+
+// create showroom class which has cars in it . no duplicate car can be stored
+
+ShowRoom ,  Car ->
+name
+cars
+
+// create 2 showroom  objects ..
+
+// accept showroom name from the cmd and display cars in the showroom
+
+Cars.java
+package com.day7task; 
+
+	 import java.util.ArrayList;
+	 import java.util.HashMap;
+	 import java.util.Map;
+	 import java.util.Scanner;
+	 public class Cars {
+		               public static void main(String[] args)
+
+	               {
+	                            Showroom s1=new Showroom("sr1","Srikakulam","Audi","abc","red");
+	                            Showroom s2=new Showroom("sr2","vizag","BMW","pqr","black");
+	                            Showroom s3=new Showroom("sr3","vizayanagaram","Volkswagen","xyz","white");
+	                            ArrayList<Showroom> showroom1=new ArrayList<>();
+
+	                            showroom1.add(s1);
+	                            showroom1.add(s2);
+	                            showroom1.add(s3);
+
+	                            Showroom s4=new Showroom("sr4","Srikakulam","Suzuki","abc","red");
+	                            Showroom s5=new Showroom("sr5","vizag","Honda","pqr","black");
+	                            Showroom s6=new Showroom("sr6","vizayanagaram","Tatanano","klm","cement");
+
+	                            
+	                            ArrayList<Showroom> showroom2=new ArrayList<>();
+
+	                            showroom2.add(s4);
+	                            showroom2.add(s5);
+	                            showroom2.add(s6);
+
+	                            Showroom s7=new Showroom("sr7","Srikakulam","Jeep Wrangler","stu","grey");
+	                            Showroom s8=new Showroom("sr8","vizayanagaram","Citroen C5","klm","white");
+	                            Showroom s9=new Showroom("sr9","nellore","Mercedes-Benz","abc","red");
+
+	                            
+	                            ArrayList<Showroom> showroom3=new ArrayList<>();
+
+	                            showroom3.add(s7);
+	                            showroom3.add(s8);
+	                            showroom3.add(s9);
+                              
+	                            Map<String , ArrayList<Showroom>> teams=new HashMap<String, ArrayList<Showroom>>();
+	                            teams.put("ShowRoom1",showroom1 );
+	                            teams.put("ShowRoom2", showroom2);
+	                            teams.put("ShowRoom3", showroom3);
+	                            System.out.println("Enter showroom name to get details of the car");
+	                            Scanner sc=new Scanner(System.in);
+	                            String team=sc.nextLine();
+	                            ArrayList<Showroom> SRHTeam=teams.get(team);
+	                            for(Showroom showroom:SRHTeam)
+	                            {
+	                            System.out.println(showroom.getCarname());
+
+	                            }
+	               }
+                 
+}
+
+
+
+
+----------------------------------------------------------------------------------------------
+Showroom.java
+
+package com.day7task;
+
+
+public class Showroom {
+    private String srname;
+    private String city;
+    private String carname;
+    private String carmaker;
+    private String carclr;
+    
+   public String getSrname() {
+                 return srname;
+    }
+
+    public void setSrname(String srname) {
+                 this.srname = srname;
+    }
+    public String getCity() {
+                 return city;
+    }
+    public void setCity(String city) {
+                 this.city = city;
+    }
+    public String getCarname() {
+                 return carname;
+    }
+    public void setCarname(String carname) {
+                 this.carname = carname;
+    }
+    public String getCarmaker() {
+                 return carmaker;
+    }
+    public void setCarmaker(String carmaker) {
+                 this.carmaker = carmaker;
+    }
+    public String getCarclr() {
+                 return carclr;
+    }
+    public void setCarclr(String carclr) {
+                 this.carclr = carclr;
+    }
+    public Showroom(String srname, String city, String carname, String carmaker, String carclr) {
+                 super();
+                 this.srname = srname;
+                 this.city = city;
+                 this.carname = carname;
+                 this.carmaker = carmaker;
+                 this.carclr = carclr;
+    }
+    @Override
+    public String toString() {
+                 return "Showroom [srname=" + srname + ", city=" + city + ", carname=" + carname + ", carmaker=" + carmaker
+                                             + ", carclr=" + carclr + "]";
+    }
+}
+
+               
+	                            
