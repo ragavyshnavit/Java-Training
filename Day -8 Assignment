@@ -59,8 +59,8 @@ package com.day7task;
 	                            System.out.println("Enter showroom name to get details of the car");
 	                            Scanner sc=new Scanner(System.in);
 	                            String team=sc.nextLine();
-	                            ArrayList<Showroom> SRHTeam=teams.get(team);
-	                            for(Showroom showroom:SRHTeam)
+	                            ArrayList<Showroom> Showroom3=teams.get(carname);
+	                            for(Showroom showroom:Showroom3)
 	                            {
 	                            System.out.println(showroom.getCarname());
 
