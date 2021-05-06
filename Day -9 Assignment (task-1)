@@ -1,0 +1,153 @@
+create a table Player
+-> Name
+-> role
+-> style
+-> team
+
+----->>
+ insert player recs into the table from a jdbc program ensure util, model ,dao and service are implemented in your code
+
+
+
+package com.myproj.dbutil;
+
+	import java.sql.Connection;
+	import java.sql.DriverManager;
+
+	public class DbConn {
+	public static Connection dbConnect()
+	{
+	try{
+	Class.forName("oracle.jdbc.OracleDriver");
+	Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","vyshnavi","pass");
+	return con;
+	}
+	catch (Exception e) {
+	e.printStackTrace();
+	return null;
+	}
+	}
+	}
+
+---------------------------------------------------------------------------------------------------------
+
+
+package com.myproj.model;
+
+public class Player {
+	String Name;
+	String role;
+	String style;
+	String team;
+	public String getName() {
+		return Name;
+	}
+	public void setName(String name) {
+		Name = name;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public String getStyle() {
+		return style;
+	}
+	public void setStyle(String style) {
+		this.style = style;
+	}
+	public String getTeam() {
+		return team;
+	}
+	public void setTeam(String team) {
+		this.team = team;
+	}
+	public Player() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Player(String name, String role, String style, String team) {
+		super();
+		Name = name;
+		this.role = role;
+		this.style = style;
+		this.team = team;
+	}
+	@Override
+	public String toString() {
+		return "Player [Name=" + Name + ", role=" + role + ", style=" + style + ", team=" + team + ", getName()="
+				+ getName() + ", getRole()=" + getRole() + ", getStyle()=" + getStyle() + ", getTeam()=" + getTeam()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
+	}
+}
+-------------------------------------------------------------------------------------------------------------------------
+
+package com.myproj.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import com.myproj.dbutil.DbConn;
+import com.myproj.model.Player;
+
+public class PlayerDao {
+public String savePlayer(Player player)
+{
+try {
+String sql="insert into Player values(?,?,?,?)";
+Connection con= DbConn.dbConnect();
+PreparedStatement stat=con.prepareStatement(sql);
+stat.setString(1, player.getName());
+stat.setString(2,player.getRole());
+stat.setString(3, player.getStyle());
+stat.setString(4, player.getTeam());
+int res= stat.executeUpdate();
+if(res>0)
+return "recs inserted";
+}
+catch(Exception e)
+{
+e.printStackTrace();
+}
+return "cannot insert recs";
+}
+}
+
+
+
+
+-----------------------------------------------------------------------------
+package com.myproj.service;
+
+	import com.myproj.dao.PlayerDao;
+	import com.myproj.model.Player;
+	public class PlayerService {
+	public static void main(String[] args) {
+	Player player=new Player("DavidWarner","captain","Batsman","srh");
+	PlayerDao dao=new PlayerDao();
+	String res= dao.savePlayer(player);
+	System.out.println(res);
+	}
+	}
+
+
+
+//OUTPUT
+
+recs inserted
+
+SQL> select * from Player;
+
+NAME                 ROLE       STYLE      TEAM
+-------------------- ---------- ---------- -----
+mahi                 caption    batsman    csk
+kohili               captain    rhbatsma   rcb
+Suresh Raina         captain    batsman    csk
+Jadeja               captain    Allrounder csk
+Ruturaj Gaikwad      captain    Batsman    csk
+DavidWarner          captain    Batsman    srh
+Kane Williamson      player     Batsman    srh
+
+7 rows selected.
